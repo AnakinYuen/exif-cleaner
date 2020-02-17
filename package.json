@@ -1,0 +1,39 @@
+{
+  "name": "exif-cleaner",
+  "version": "0.0.1",
+  "description": "A simple Progressive Web App for stripping off EXIF data from any image",
+  "main": "index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnakinYuen/exif-cleaner.git"
+  },
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webapp",
+    "progressive web app",
+    "pwa",
+    "exif",
+    "metadata"
+  ],
+  "author": "Anakin Yuen",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-standard-preact": "^1.1.6",
+    "eslint-plugin-prettier": "^3.1.2",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1",
+    "sass": "^1.25.0",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "preact": "^10.3.2"
+  }
+}
