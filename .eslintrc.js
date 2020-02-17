@@ -12,5 +12,8 @@ module.exports = {
     ecmaFeatures: {
       jsx: true // Allows for the parsing of JSX
     }
+  },
+  rules: {
+    "@typescript-eslint/triple-slash-reference": 0
   }
 };
