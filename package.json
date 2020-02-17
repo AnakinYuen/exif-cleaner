@@ -34,6 +34,8 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
+    "autoprefixer": "^9.7.4",
+    "postcss-modules": "^1.5.0",
     "preact": "^10.3.2"
   }
 }
