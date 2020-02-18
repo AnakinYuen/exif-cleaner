@@ -4,6 +4,7 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "es6",
+    "lib": ["WebWorker", "DOM", "ES6", "DOM.Iterable", "ScriptHost"],
     "moduleResolution": "node",
     "target": "es6",
     "jsx": "react",
