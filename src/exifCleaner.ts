@@ -1,6 +1,8 @@
 import { isIOS } from './utils';
+import ThreadPool from './utils/ThreadPool';
+import { BlobMessageEvent } from './utils/imageToBlob';
 
-const imageToBlob = async (file: File) => {
+const onScreenCanvas = async (file: File) => {
   const imageBitmap = await createImageBitmap(file);
   const canvas = document.createElement('canvas');
   canvas.width = imageBitmap.width;
@@ -16,6 +18,18 @@ const imageToBlob = async (file: File) => {
     canvas.toBlob(resolve);
   });
 };
+
+const offScreenCanvas = (file: File) => {
+  const threadPool = new ThreadPool((navigator.hardwareConcurrency || 3) - 1);
+  threadPool.init();
+
+  return new Promise<Blob>(resolve => {
+    threadPool.addWorkerTask({ file, callback: ({ data }: BlobMessageEvent) => resolve(data) });
+  });
+};
+
+const imageToBlob: (file: File) => Promise<Blob> =
+  'OffscreenCanvas' in window ? offScreenCanvas : onScreenCanvas;
 
 const exifCleaner = async (files: File[]): Promise<Map<File, Blob>> => {
   const map = new Map<File, Blob>();
