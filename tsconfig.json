@@ -10,5 +10,6 @@
     "jsx": "react",
     "jsxFactory": "h"
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "files": ["declaration.d.ts"]
 }

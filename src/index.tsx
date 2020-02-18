@@ -1,5 +1,3 @@
-/// <reference path="../declaration.d.ts" />
-
 import { h, render, JSX } from 'preact';
 import style from './style.module.scss';
 import UploadBox from './components/UploadBox';
