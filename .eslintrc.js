@@ -14,6 +14,7 @@ module.exports = {
     }
   },
   rules: {
-    "@typescript-eslint/triple-slash-reference": 0
+    "@typescript-eslint/triple-slash-reference": 0,
+    "@typescript-eslint/explicit-function-return-type": 0
   }
 };
