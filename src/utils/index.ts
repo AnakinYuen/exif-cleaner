@@ -8,3 +8,5 @@ export const isIOS =
   !!navigator.platform &&
   /iPad|iPhone|iPod|MacIntel/.test(navigator.platform) &&
   navigator.maxTouchPoints > 1;
+
+export const classNames = (...args: string[]) => args.filter(Boolean).join(' ');
