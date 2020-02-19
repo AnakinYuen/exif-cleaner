@@ -1,0 +1,21 @@
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as *;
+
+.header {
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $text-icon;
+  font-size: 36px;
+  @include absolute-position(0, 0, 50px, 0);
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+}
