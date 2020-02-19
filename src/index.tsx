@@ -1,11 +1,14 @@
 import { h, render, JSX } from 'preact';
 import style from './style.module.scss';
+import Header from './components/Header';
 import UploadBox from './components/UploadBox';
 
 const App = (): JSX.Element => (
-  <div>
-    <h1 className={style.header}>Hello World</h1>
-    <UploadBox />
+  <div className={style.app}>
+    <Header className={style.header} />
+    <main className={style.main}>
+      <UploadBox />
+    </main>
   </div>
 );
 

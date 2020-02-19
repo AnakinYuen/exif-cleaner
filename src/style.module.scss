@@ -1,5 +1,25 @@
-$primary-color: blue;
+$header-height: 120px;
+$main-padding: 20px;
+
+.app {
+  width: 100vw;
+  min-height: 100vh;
+}
 
 .header {
-  color: $primary-color;
+  &.header {
+    position: sticky;
+  }
+
+  top: 0;
+  z-index: 1;
+  height: 170px;
+  margin-bottom: -50px;
+  pointer-events: none;
+}
+
+.main {
+  position: relative;
+  padding: $main-padding;
+  min-height: calc(100vh - #{$header-height});
 }
