@@ -7,7 +7,7 @@ const App = (): JSX.Element => (
   <div className={style.app}>
     <Header className={style.header} />
     <main className={style.main}>
-      <UploadBox />
+      <UploadBox className={style['upload-box']} />
     </main>
   </div>
 );
