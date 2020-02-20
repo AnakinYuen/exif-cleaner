@@ -1,7 +1,7 @@
 import { h, JSX } from 'preact';
 import { useState, useMemo } from 'preact/hooks';
 import style from './style.module.scss';
-import ImageIcon from '../ImageIcon';
+import UploadBoxContent from '../UploadBoxContent';
 import { classNames } from '../../utils';
 
 const preventDefaultAndStopPropagation = (e: Event) => {
@@ -57,20 +57,7 @@ const UploadBox = (props: Props): JSX.Element => {
           multiple
           onChange={onChange}
         />
-        <div className={classNames(style.content, props.close && style['content--close'])}>
-          <ImageIcon
-            className={classNames(style.icon, isDragOver && style['icon--close'])}
-            close={isDragOver}
-          />
-          <p className={style.header}>Upload images</p>
-          <span className={style.content}>Drag and drop your images here to start the upload</span>
-          <label
-            className={classNames(style.button, isDragOver && style['button--hidden'])}
-            for="file"
-          >
-            Choose Images
-          </label>
-        </div>
+        <UploadBoxContent isDragOver={isDragOver} close={props.close} />
       </div>
     );
   }, [props.className, props.close, props.setFiles, isDragOver, setIsDragOver]);

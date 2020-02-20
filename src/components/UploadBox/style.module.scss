@@ -1,5 +1,4 @@
 @use '../../scss/variables' as *;
-@use '../../scss/mixins' as *;
 
 .area {
   position: relative;
@@ -16,66 +15,6 @@
   }
 }
 
-.content {
-  position: relative;
-  transition: all 0.3s;
-  margin: 32px;
-  pointer-events: none;
-
-  &--close {
-    transform: scale(0);
-  }
-}
-
 .input {
   display: none;
-}
-
-.icon {
-  width: 50vw;
-  max-width: 160px;
-  margin: auto;
-  transition: all 0.3s $animation-speed-curve;
-
-  &--close {
-    transform: translateX(percentage((333 - 234) / 2 / 333));
-  }
-}
-
-.header {
-  font-weight: bold;
-  font-size: 24px;
-  text-align: center;
-  margin: 10px 0;
-  color: $primary-text;
-}
-
-.content {
-  display: block;
-  font-size: 14px;
-  text-align: center;
-  color: $secondary-text;
-}
-
-.button {
-  margin: auto;
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $primary-color;
-  color: $text-icon;
-  width: 130px;
-  height: 35px;
-  font-size: 14px;
-  border-radius: 999px;
-  @include depth(2);
-  transition: all 0.3s $animation-speed-curve;
-  cursor: pointer;
-  pointer-events: auto;
-
-  &--hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
 }
