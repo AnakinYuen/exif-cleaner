@@ -1,0 +1,25 @@
+@use '../../scss/mixins' as *;
+
+.thumbnail {
+  position: relative;
+  border-radius: 10px;
+  height: 0;
+  padding-bottom: 100%;
+  background-size: cover;
+  @include depth(1);
+}
+
+.tick {
+  position: absolute;
+  $offset: percentage(5 / 109);
+  top: $offset;
+  right: $offset;
+  width: percentage(20 / 109);
+  transform: scale(0);
+  transition: all 0.1s linear;
+  user-select: none;
+
+  &--is-check {
+    transform: scale(1);
+  }
+}
