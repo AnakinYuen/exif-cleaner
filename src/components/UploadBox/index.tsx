@@ -4,10 +4,6 @@ import style from './style.module.scss';
 import ImageIcon from '../ImageIcon';
 import { classNames } from '../../utils';
 
-const onChange = (e: Event): void => {
-  console.log((e.target as HTMLInputElement).files);
-};
-
 const preventDefaultAndStopPropagation = (e: Event) => {
   e.preventDefault();
   e.stopPropagation();
@@ -16,12 +12,17 @@ const preventDefaultAndStopPropagation = (e: Event) => {
 interface Props {
   close?: boolean;
   className?: string;
+  setFiles: (files: File[]) => void;
 }
 
 const UploadBox = (props: Props): JSX.Element => {
   const [isDragOver, setIsDragOver] = useState(false);
 
   return useMemo(() => {
+    const onChange = (e: Event): void => {
+      props.setFiles([...(e.target as HTMLInputElement).files]);
+    };
+
     const dragOverHandler = (e: DragEvent) => {
       setIsDragOver(true);
       preventDefaultAndStopPropagation(e);
@@ -72,7 +73,7 @@ const UploadBox = (props: Props): JSX.Element => {
         </div>
       </div>
     );
-  }, [props.className, props.close, isDragOver, setIsDragOver]);
+  }, [props.className, props.close, props.setFiles, isDragOver, setIsDragOver]);
 };
 
 export default UploadBox;

@@ -1,3 +1,6 @@
+@use './scss/variables' as *;
+@use './scss/mixins' as *;
+
 $header-height: 120px;
 $main-padding: 20px;
 
@@ -24,6 +27,22 @@ $main-padding: 20px;
   min-height: calc(100vh - #{$header-height});
 }
 
+@keyframes upload-box-close {
+  0% {
+    width: calc(100% - #{$main-padding * 2});
+    height: calc(100% - #{$main-padding * 2} - #{$header-height});
+    background: initial;
+  }
+  50%,
+  100% {
+    width: 60px;
+    height: 60px;
+    background: $primary-color;
+    padding: 0;
+    border-radius: 50%;
+  }
+}
+
 .upload-box {
   right: $main-padding;
   bottom: $main-padding;
@@ -31,7 +50,28 @@ $main-padding: 20px;
   height: calc(100% - #{$main-padding * 2} - #{$header-height});
   transition: opacity 0s linear 0.6s;
 
+  &--close {
+    animation-name: upload-box-close;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
   &.upload-box {
     position: fixed;
+  }
+}
+
+.fab {
+  right: $main-padding;
+  bottom: $main-padding;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s linear 0.3s;
+
+  &--up {
+    pointer-events: auto;
+    opacity: 1;
+    @include depth(2);
   }
 }
