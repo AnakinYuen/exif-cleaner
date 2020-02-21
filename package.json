@@ -33,6 +33,7 @@
     "eslint-config-standard-preact": "^1.1.6",
     "eslint-plugin-prettier": "^3.1.2",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-sw-cache": "^0.3.1",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
     "sass": "^1.25.0",
