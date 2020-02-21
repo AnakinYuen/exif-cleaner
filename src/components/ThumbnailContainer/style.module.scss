@@ -1,0 +1,14 @@
+@use '../../scss/functions' as *;
+@use '../../scss/variables' as *;
+
+.container {
+  $thumbnail-width: 32%;
+  $num-of-thumbnail-in-a-row: 3;
+  $container-width: '100vw - #{$main-padding * 2}';
+  $remain-space-in-container: decimal(100% - $thumbnail-width * $num-of-thumbnail-in-a-row);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $thumbnail-width);
+  justify-content: space-between;
+  row-gap: calc((#{$container-width}) * #{$remain-space-in-container / 2});
+}
