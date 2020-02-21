@@ -46,5 +46,10 @@
     "jszip": "^3.2.2",
     "postcss-modules": "^1.5.0",
     "preact": "^10.3.2"
+  },
+  "cache": {
+    "strategy": "inject",
+    "swSrc": "./src/sw.js",
+    "swDest": "service-worker.js"
   }
 }
