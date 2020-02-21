@@ -1,4 +1,16 @@
-import { h, render } from 'preact';
+import { h, render, JSX } from 'preact';
 import App from './components/App';
+import { ContextStore, initState, reducer } from './globalState';
+import useThunkReducer from './utils/useThunkReducer';
 
-render(<App />, document.getElementById('root'));
+const Provider = (): JSX.Element => {
+  const [state, dispatch] = useThunkReducer(reducer, initState);
+
+  return (
+    <ContextStore.Provider value={{ ...state, dispatch }}>
+      <App />
+    </ContextStore.Provider>
+  );
+};
+
+render(<Provider />, document.getElementById('root'));
