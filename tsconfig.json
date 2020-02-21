@@ -8,7 +8,8 @@
     "moduleResolution": "node",
     "target": "es6",
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["./src/**/*"],
   "files": ["declaration.d.ts"]
