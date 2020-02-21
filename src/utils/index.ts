@@ -10,3 +10,5 @@ export const isIOS =
   navigator.maxTouchPoints > 1;
 
 export const classNames = (...args: string[]) => args.filter(Boolean).join(' ');
+
+export const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));

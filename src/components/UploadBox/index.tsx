@@ -1,8 +1,10 @@
 import { h, JSX } from 'preact';
-import { useState, useMemo } from 'preact/hooks';
+import { useState, useContext, useMemo } from 'preact/hooks';
 import style from './style.module.scss';
 import UploadBoxContent from '../UploadBoxContent';
 import { classNames } from '../../utils';
+import { asyncUpdateMultipleImageProgress } from '../../utils/helper';
+import { ContextStore, addImages } from '../../globalState';
 
 const preventDefaultAndStopPropagation = (e: Event) => {
   e.preventDefault();
@@ -12,15 +14,17 @@ const preventDefaultAndStopPropagation = (e: Event) => {
 interface Props {
   close?: boolean;
   className?: string;
-  setFiles: (files: File[]) => void;
 }
 
 const UploadBox = (props: Props): JSX.Element => {
   const [isDragOver, setIsDragOver] = useState(false);
+  const { dispatch } = useContext(ContextStore);
 
   return useMemo(() => {
     const onChange = (e: Event): void => {
-      props.setFiles([...(e.target as HTMLInputElement).files]);
+      const files = [...(e.target as HTMLInputElement).files];
+      dispatch(addImages(files));
+      dispatch(asyncUpdateMultipleImageProgress(files));
     };
 
     const dragOverHandler = (e: DragEvent) => {
@@ -34,8 +38,10 @@ const UploadBox = (props: Props): JSX.Element => {
     };
 
     const dropHandler = (e: DragEvent) => {
-      console.log(e.dataTransfer.files);
+      const files = [...e.dataTransfer.files];
       dragLeaveHandler(e);
+      dispatch(addImages(files));
+      dispatch(asyncUpdateMultipleImageProgress(files));
     };
 
     return (
@@ -60,7 +66,7 @@ const UploadBox = (props: Props): JSX.Element => {
         <UploadBoxContent isDragOver={isDragOver} close={props.close} />
       </div>
     );
-  }, [props.className, props.close, props.setFiles, isDragOver, setIsDragOver]);
+  }, [props.className, props.close, isDragOver, setIsDragOver, dispatch]);
 };
 
 export default UploadBox;
