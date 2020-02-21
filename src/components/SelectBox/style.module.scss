@@ -1,0 +1,24 @@
+@use '../../scss/variables' as *;
+
+.select-box {
+  display: flex;
+  flex-flow: column;
+  max-width: $select-box-max-width;
+  margin: auto;
+}
+
+.button {
+  font-size: 18px;
+  line-height: 1em;
+  padding: 0.8em;
+  color: $primary-color;
+  border: 0;
+  background: transparent;
+  align-self: flex-end;
+  margin-bottom: 4px;
+
+  &--disable {
+    cursor: not-allowed;
+    color: $secondary-text;
+  }
+}
