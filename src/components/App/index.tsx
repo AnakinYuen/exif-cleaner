@@ -4,6 +4,7 @@ import style from './style.module.scss';
 import Header from '../Header';
 import FAB from '../FAB';
 import UploadBox from '../UploadBox';
+import SelectBox from '../SelectBox';
 import { classNames } from '../../utils';
 import { ContextStore } from '../../globalState';
 
@@ -18,6 +19,9 @@ const App = (): JSX.Element => {
           <UploadBox
             className={classNames(style['upload-box'], haveFile && style['upload-box--close'])}
             close={haveFile}
+          />
+          <SelectBox
+            className={classNames(style['select-box'], haveFile && style['select-box--show'])}
           />
         </main>
         <FAB className={classNames(style.fab, haveFile && style['fab--up'])} action="add" />

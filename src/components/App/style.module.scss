@@ -61,6 +61,17 @@ $header-height: 120px;
   }
 }
 
+.select-box {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s linear 0.3s;
+
+  &--show {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
+
 .fab {
   right: $main-padding;
   bottom: $main-padding;
