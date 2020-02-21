@@ -11,4 +11,19 @@
   grid-template-columns: repeat(auto-fill, $thumbnail-width);
   justify-content: space-between;
   row-gap: calc((#{$container-width}) * #{$remain-space-in-container / 2});
+
+  @media only screen and (min-width: 768px) {
+    $thumbnail-width: 19%;
+    $num-of-thumbnail-in-a-row: 5;
+    $container-width: '100vw - #{$main-padding * 2}';
+    $remain-space-in-container: decimal(100% - $thumbnail-width * $num-of-thumbnail-in-a-row);
+
+    grid-template-columns: repeat(auto-fill, $thumbnail-width);
+    row-gap: calc((#{$container-width}) * #{$remain-space-in-container / 3});
+  }
+
+  @media only screen and (min-width: $select-box-max-width + $main-padding * 2) {
+    width: $select-box-max-width;
+    row-gap: calc(#{$select-box-max-width} * #{$remain-space-in-container / 3});
+  }
 }
