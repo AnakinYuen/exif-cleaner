@@ -21,3 +21,7 @@ A simple Progressive Web App for stripping off EXIF data from any image
 ## Screenshots
 
 ![Screenshots](./screenshots.png)
+
+## Design
+
+https://www.figma.com/file/JK10Cy5EWCVNAA6cASZ4yP/EXIF-Cleaner?node-id=7%3A0
